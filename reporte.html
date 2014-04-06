@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","errorBeacon":"jserror.newrelic.com","licenseKey":"7d2d5a1356","applicationID":"2664660","transactionName":"JQ5cEUdWClpTQRhFBwEEQUpcVwJTTg==","queueTime":46,"applicationTime":703,"ttGuid":"","agentToken":null,"agent":"js-agent.newrelic.com/nr-378.min.js"}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function t(n,e,o){function r(a){if(!e[a]){var i=e[a]={exports:{}};n[a][0].call(i.exports,function(t){var e=n[a][1][t];return r(e?e:t)},i,i.exports,t,n,e,o)}return e[a].exports}for(var a=0;a<o.length;a++)r(o[a]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=o[t];return e?e.apply(this,n):(r[t]||(r[t]=[]),void r[t].push(n))}var o={},r={};n.exports=e,e.queues=r,e.handlers=o},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=d.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID){d.proto="https"===c.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=u.createElement("script");n.src=d.proto+t.agent,u.body.appendChild(n)}}function o(){"complete"===u.readyState&&r()}function r(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),s=window,u=s.document,p="addEventListener",l="attachEvent",c=(""+location).split("?")[0],d=n.exports={offset:a(),origin:c,features:[]};u[p]?(u[p]("DOMContentLoaded",r,!1),s[p]("load",e,!1)):(u[l]("onreadystatechange",o),s[l]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
+<title>Reporte Ciudadano</title>
+<link href="/assets/theme_one-4eb9649f8e561c7d55b22eb2b601594c.css" media="all" rel="stylesheet" type="text/css" />
+<script src="/assets/application-00d0b02b372c37012e14ecccaf4d76b0.js" type="text/javascript"></script>
+<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9kACu5d3ISqjo9oZMCjfk65jRPy1w1XM&amp;sensor=false' type='text/javascript'></script>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="TRf9gr0JyM82D8+AZFUbW/kttGddJlJsMfcwXyn+R84=" name="csrf-token" />
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46950723-6', 'sapao.herokuapp.com');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+<body class='pages index'>
+<div id='fb-root'></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=603237583078144";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<div id='wrap'>
+<div class='navbar navbar-default navbar-fixed-top'>
+<div class='container logos-header'>
+<a href="/"><img alt="Logo_urbem" class="logo" src="/assets/logo_urbem-097baaf0e4312975b9cc08118dc3c600.png" /></a>
+<div class='pull-right'>
+<a href="http://www.oaxaca.gob.mx/"><img alt="Logo_gobierno" class="logo" src="/assets/logo_gobierno-0bb1161b2916836057c640ea4bca661f.png" /></a>
+<a href="http://www.oaxaca.gob.mx/"><img alt="Logo_oaxaca" class="logo" src="/assets/logo_oaxaca-e200725db07ffa01299dcc67213108f9.png" /></a>
+<a href="http://www.oaxtransparente.gob.mx/"><img alt="Lgoo_otransparente" class="logo" src="/assets/lgoo_otransparente-a32236618dbe018fab69bb5953b5a314.png" /></a>
+</div>
+</div>
+
+<div class='container'>
+<div class='navbar-header'>
+<button class='navbar-toggle' data-target='.navbar-collapse' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<div class='navbar-collapse collapse'>
+<ul class='nav navbar-nav'>
+<li>
+<a href="/" class="pages index">Resumen</a>
+</li>
+<li>
+<a href="/requests" class="reports index">Reportes</a>
+</li>
+<li>
+<form action="/requests/new" class="button_to" method="get"><div><input class="reports new btn btn-primary navbar-btn" type="submit" value="Realizar reporte" /></div></form>
+</li>
+</ul>
+<ul class='nav navbar-nav navbar-right'>
+<li>
+<a href="/users/sign_up">Registrarme</a>
+</li>
+<li>
+<a href="/users/sign_in">Iniciar sesión</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class='container'>
+<div class='slogan'>
+<img alt="Banner" src="/assets/banner-2cbd584644ac1e8d0a71f9018bb0aa63.png" />
+</div>
+
+<div class='row reports-stats l-slogan-container-bottom' data-total='22'>
+<div class='col-md-4 col-sm-4 col-xs-4 reports-stats-block'>
+22
+<h3 class='reports-stats-name'>Total de reportes</h3>
+</div>
+<div class='col-md-4 col-sm-4 col-xs-4 reports-stats-block mid'>
+2
+<h3 class='reports-stats-name'>Reportes abiertos</h3>
+</div>
+<div class='col-md-4 col-sm-4 col-xs-4 reports-stats-block'>
+20
+<h3 class='reports-stats-name'>Reportes resueltos</h3>
+</div>
+</div>
+<div class='row blk-summary l-margin-l-bottom'>
+<div class='container'>
+<h2 class='blk-summary-title'>Reportes por tipo de servicio</h2>
+<div data-chart-data='[{"id":1,"name":"Toma tapada","status_1":"0","status_2":"0","status_3":"0","status_4":"4"},{"id":3,"name":"Fuga de agua potable","status_1":"0","status_2":"0","status_3":"0","status_4":"10"},{"id":4,"name":"Desperdicio de agua","status_1":"0","status_2":"0","status_3":"0","status_4":"2"},{"id":5,"name":"Robo de alcantarilla","status_1":"0","status_2":"0","status_3":"0","status_4":"0"},{"id":6,"name":"Alcantarilla en mal estado","status_1":"0","status_2":"0","status_3":"1","status_4":"2"},{"id":7,"name":"Falla en el drenaje","status_1":"1","status_2":"0","status_3":"0","status_4":"1"},{"id":8,"name":"Solicitud de pipa de agua","status_1":"0","status_2":"0","status_3":"0","status_4":"0"},{"id":9,"name":"Reconexi\u00f3n de toma de agua potable","status_1":"0","status_2":"0","status_3":"0","status_4":"0"},{"id":10,"name":"Retraso del servicio","status_1":"0","status_2":"0","status_3":"0","status_4":"1"},{"id":11,"name":"Robo de medidor","status_1":"0","status_2":"0","status_3":"0","status_4":"0"}]' data-status-names='["Abierto","Verificaci\u00f3n","En proceso","Concluido"]' id='reports-chart'></div>
+</div>
+</div>
+<div class='row blk-summary l-margin-l-bottom'>
+<div class='container'>
+<h2 class='blk-summary-title'>Mapa de reportes</h2>
+<form accept-charset="UTF-8" action="/requests/markers_for_gmap" class="filters form-inline" data-remote="true" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<div class='form-group form-group-separator'>
+<input class="form-control" id="service_request_id" name="service_request_id" placeholder="No. Folio" type="text" />
+</div>
+<div class='form-group'>
+<input class="btn btn-primary js-ajax-sender" data-processing-label="Buscando..." data-stealth-label="Buscar" name="commit" type="submit" value="Buscar" />
+</div>
+</form>
+
+<div class='map' data-latitude='19.43' data-longitude='-99.13'>
+<div id='reports-map'></div>
+</div>
+<form accept-charset="UTF-8" action="/requests/markers_for_gmap" class="filters form-inline" data-remote="true" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<div class='form-group'>
+<input class="datepicker form-control col-lg-6" id="start_date" name="start_date" placeholder="De la fecha" type="text" />
+</div>
+<div class='form-group form-group-separator'>
+<input class="datepicker form-control col-lg-6" id="end_date" name="end_date" placeholder="A la fecha" type="text" />
+</div>
+<div class='form-group form-group-separator'>
+<select class="form-control" id="status" name="status"><option value="">Cualquier estatus</option><option value="Abierto">Abierto</option>
+<option value="Verificación">Verificación</option>
+<option value="En proceso">En proceso</option>
+<option value="Concluido">Concluido</option></select>
+</div>
+<div class='form-group form-group-separator'>
+<select class="form-control" id="service_code" name="service_code"><option value="">Todos los servicios</option><option value="1">Toma tapada</option>
+<option value="4">Desperdicio de agua</option>
+<option value="5">Robo de alcantarilla</option>
+<option value="6">Alcantarilla en mal estado</option>
+<option value="7">Falla en el drenaje</option>
+<option value="8">Solicitud de pipa de agua</option>
+<option value="9">Reconexión de toma de agua potable</option>
+<option value="10">Retraso del servicio</option>
+<option value="11">Robo de medidor</option>
+<option value="3">Fuga de agua potable</option></select>
+</div>
+<div class='form-group'>
+<input class="btn btn-primary js-ajax-sender" data-processing-label="Buscando..." data-stealth-label="Buscar" name="commit" type="submit" value="Buscar" />
+</div>
+</form>
+
+</div>
+</div>
+<div class='row blk-summary l-margin-l-bottom'>
+<div class='container'>
+<h2 class='blk-summary-title'>Solicitudes recientes</h2>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;drenaje tapado&lt;/span&gt;&lt;a href="/requests/59" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0473687' data-lng='-96.7366098' id='service_request_59'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-04-04T22:18:06Z">2014-04-04 16:18:06 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/59" class="title">Falla en el drenaje</a>
+</h3>
+<span class='recent-report-address'> - prolg. de Hidalgo No.203 col. Gomez Snadoval</span>
+<p>drenaje tapado</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;Calle 21 de Marzo Esq. Río Salado col. cieneguita&lt;/span&gt;&lt;a href="/requests/58" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0474507' data-lng='-96.70726009999998' id='service_request_58'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-04-02T21:00:52Z">2014-04-02 15:00:52 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/58" class="title">Alcantarilla en mal estado</a>
+</h3>
+<span class='recent-report-address'> - calle 21 de marzo col. cieneguita</span>
+<p>Calle 21 de Marzo Esq. Río Salado col. cieneguita</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;La ubicación del reporte se encuentra entre J.P. Garcia y 20 de Noviembre&lt;/span&gt;&lt;a href="/requests/57" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0605579' data-lng='-96.72688529999999' id='service_request_57'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-04-02T16:37:47Z">2014-04-02 10:37:47 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/57" class="title">Fuga de agua potable</a>
+</h3>
+<span class='recent-report-address'> - Trujano 212, Centro, Oaxaca de Juárez</span>
+<p>La ubicación del reporte se encuentra entre J.P. Garcia y 20 de Noviembre</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;LA ALCANTARILLA SE ENCUENTRA EN EL CIRCUITO AHUEHUETES,&#x000A; FRENTE A LAS BOMBAS DE  DISTRIBUCIÓN DEL SERVICIO&lt;/span&gt;&lt;a href="/requests/53" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0843722' data-lng='-96.71227520000002' id='service_request_53'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-31T19:48:11Z">2014-03-31 13:48:11 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/53" class="title">Alcantarilla en mal estado</a>
+</h3>
+<span class='recent-report-address'> - FRACCIONAMIENTO  POZAS ARCAS FOVISSSTE 
+</span>
+<p>LA ALCANTARILLA SE ENCUENTRA EN EL CIRCUITO AHUEHUETES,
+ FRENTE A LAS BOMBAS DE  DISTRIBUCIÓN DEL SERVICIO</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;La fuga se localiza entre la calle de Pino Suárez y Av. Juárez, frente al domicilio citado.&lt;/span&gt;&lt;a href="/requests/51" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0641268' data-lng='-96.72087169999998' id='service_request_51'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-27T19:44:49Z">2014-03-27 13:44:49 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/51" class="title">Fuga de agua potable</a>
+</h3>
+<span class='recent-report-address'> - Abasolo 305, Centro, Oaxaca de Juárez</span>
+<p>La fuga se localiza entre la calle de Pino Suárez y Av. Juárez, frente al domicilio citado.</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;El domicilio se encuentra a 2 cuadras de TV Azteca&lt;/span&gt;&lt;a href="/requests/49" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.088786' data-lng='-96.69900129999996' id='service_request_49'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-27T17:11:12Z">2014-03-27 11:11:12 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/49" class="title">Fuga de agua potable</a>
+</h3>
+<span class='recent-report-address'> - Zacatecas 206, San Felipe del Agua, Oaxaca de Juárez</span>
+<p>El domicilio se encuentra a 2 cuadras de TV Azteca</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;La falla de drenaje se encuentra frente a las Instalaciones de Servicio Panamericano de Traslado de Valores, entre Calz. de la República y la calle e Libres. Folio Interno: 20843&lt;/span&gt;&lt;a href="/requests/47" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0657677' data-lng='-96.71789590000003' id='service_request_47'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-26T16:12:43Z">2014-03-26 10:12:43 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/47" class="title">Falla en el drenaje</a>
+</h3>
+<span class='recent-report-address'> - Cosijoeza 211, Jalatlaco, Oaxaca de Juarez, Oaxaca</span>
+<p>La falla de drenaje se encuentra frente a las Instalaciones de Servicio Panamericano de Traslado de Valores, entre Calz. de la República y la calle e Libres. Folio Interno: 20843</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;LA FUGA SE ENCUENTRA EN LA ESQ. DE CEDROS  JUNTO AL HOTEL DEL BOSQUE&#x000A;FOLIO INTERNO: 20828&lt;/span&gt;&lt;a href="/requests/46" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0689631' data-lng='-96.6978297' id='service_request_46'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-25T20:53:01Z">2014-03-25 14:53:01 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/46" class="title">Fuga de agua potable</a>
+</h3>
+<span class='recent-report-address'> - BOSQUE NORTE CARRETERA INTERNACIONAL, SANTA LUCIA DEL CAMINO</span>
+<p>LA FUGA SE ENCUENTRA EN LA ESQ. DE CEDROS  JUNTO AL HOTEL DEL BOSQUE
+FOLIO INTERNO: 20828</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;LA FUGA SE ENCUENTRA FRENTE AL No. 15 DE LA CALLE: PUERTO ESCONDIDO,&#x000A;LO REPORTA LA SRA. ADRIANA TERESA GUADALUPE  MEJIA.&#x000A;FOLIO INTERNO: 20808&lt;/span&gt;&lt;a href="/requests/45" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.041248' data-lng='-96.72832620000003' id='service_request_45'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-25T20:43:32Z">2014-03-25 14:43:32 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/45" class="title">Fuga de agua potable</a>
+</h3>
+<span class='recent-report-address'> - FRACCIONAMIENTO SANTA ELENA, SANTA CRUZ XOXOCOTLAN</span>
+<p>LA FUGA SE ENCUENTRA FRENTE AL No. 15 DE LA CALLE: PUERTO ESCONDIDO,
+LO REPORTA LA SRA. ADRIANA TERESA GUADALUPE  MEJIA.
+FOLIO INTERNO: 20808</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;Ya son varios meses que no llega el agua, se tiene que estar comprando pipa de agua.&lt;/span&gt;&lt;a href="/requests/37" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0660807' data-lng='-96.69634919999999' id='service_request_37'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-25T00:38:15Z">2014-03-24 18:38:15 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/37" class="title">Toma tapada</a>
+</h3>
+<span class='recent-report-address'> - Calicanto 103, Col del bosque, Santa Lucía del Camino.</span>
+<p>Ya son varios meses que no llega el agua, se tiene que estar comprando pipa de agua.</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;Hace mas de una semana que no han abierto el suministro de agua para la colonia hoteleros en santa rosa&lt;/span&gt;&lt;a href="/requests/36" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0998444' data-lng='-96.7480931' id='service_request_36'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-24T19:31:25Z">2014-03-24 13:31:25 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/36" class="title">Retraso del servicio</a>
+</h3>
+<span class='recent-report-address'> - Liebartad 117 colonia Hoteleros / del Maestro</span>
+<p>Hace mas de una semana que no han abierto el suministro de agua para la colonia hoteleros en santa rosa</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;Ayer que llegó el agua sobre la calle de morelos en una las ventanas de la escuela se escuchaba el chorro de agua cayendo.No es la primera vez que se desperdicia el agua en la escuela.&lt;/span&gt;&lt;a href="/requests/35" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0598976' data-lng='-96.725505' id='service_request_35'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-24T16:35:20Z">2014-03-24 10:35:20 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/35" class="title">Desperdicio de agua</a>
+</h3>
+<span class='recent-report-address'> - Insurgentes s/n Centro
+Escuela Francisco J. Mújica,</span>
+<p>Ayer que llegó el agua sobre la calle de morelos en una las ventanas de la escuela se escuchaba el chorro de agua cayendo.No es la primera vez que se desperdicia el agua en la escuela.</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+1
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;REPORTE POR PARTE DE PROTECCION CIVIL&lt;/span&gt;&lt;a href="/requests/31" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0758488' data-lng='-96.71461570000002' id='service_request_31'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-21T17:06:22Z">2014-03-21 11:06:22 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/31" class="title">Alcantarilla en mal estado</a>
+</h3>
+<span class='recent-report-address'> - ALAMOS ESQ. PRIV. ALAMOS COLONIA REFORMA, OAXACA MEXICO 
+</span>
+<p>REPORTE POR PARTE DE PROTECCION CIVIL</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;San Felipe del Agua&lt;/span&gt;&lt;a href="/requests/27" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0704329' data-lng='-96.70091839999998' id='service_request_27'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-21T16:54:49Z">2014-03-21 10:54:49 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/27" class="title">Toma tapada</a>
+</h3>
+<span class='recent-report-address'> - 2a. Privada de Jacarandas 203, San Felipe del Agua, Oaxaca, Mexico</span>
+<p>San Felipe del Agua</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+<div class='recent-report-sum' data-description='&lt;span class="info_window_description"&gt;EL DOMICILIO SE ENCUENTRA EN ESQUINA DE 3A PRIVADA DE JACARANDAS.&lt;/span&gt;&lt;a href="/requests/26" class="info_window_link"&gt;Ver completo&lt;/a&gt;' data-lat='17.0971839' data-lng='-96.7113804' id='service_request_26'>
+<div class='row'>
+<div class='col-md-2 recent-report-sum-date l-margin-s-bottom'>
+<abbr class="timeago" title="2014-03-21T16:50:45Z">2014-03-21 10:50:45 -0600</abbr>
+</div>
+<div class='col-md-8 recent-report-sum-info l-margin-s-bottom'>
+<h3 class='recent-report-title'>
+<a href="http://sapao.herokuapp.com/requests/26" class="title">Toma tapada</a>
+</h3>
+<span class='recent-report-address'> - CATALINA 303, SAN FELIPE DEL AGUA, OAXACA, MEXICO</span>
+<p>EL DOMICILIO SE ENCUENTRA EN ESQUINA DE 3A PRIVADA DE JACARANDAS.</p>
+</div>
+<div class='col-md-2 text-center l-margin-s-bottom'>
+<div class='recent-report-counter js-votes_count'>
+0
+</div>
+<div class='js-vote_status'>
+<a href="javascript:void(0)" class="btn btn-primary blocked " data-message="Para votar necesitas registrarte.">VOTA</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class='pagination'>
+<li class='disabled'>
+<a href="#" rel="prev">&laquo;</a>
+</li>
+
+<li class='active'>
+<a href="#">1</a>
+</li>
+
+<li class=''>
+<a href="/?page=2" rel="next">2</a>
+</li>
+
+<li>
+<a href="/?page=2" rel="next">&raquo;</a>
+</li>
+
+</ul>
+
+
+</div>
+</div>
+<div id='footer'>
+<div class='container'>
+<div class='row'>
+<div class='col-md-6'>
+<p>
+Ésta es una plataforma de transparencia de
+<a href="https://github.com/CodeandoMexico/reporte-ciudadano" class="footer-link">código abierto</a>
+que promueve la colaboración
+<span class='large-font'>gobierno-sociedad</span>
+desarrollada para el Gobierno del Estado de Oaxaca como parte de su política de #Transparencia, #participaciónCiudadana y #Gobiernoabierto por:
+</p>
+<a href="http://www.codeandomexico.org"><img alt="Logo_codeando-w" class="main-logo" src="/assets/logo_codeando-w-c30916f76dc2166b46a8b1547041b1f4.png" /></a>
+<p>en el marco del <b>Programa de Capacitación para Mejorar la Transparencia y Rendición de Cuentas en el Sector Agua y Saneamiento en el Estado de Oaxaca</b> 2011-2013 <a href="http://www.oaxtransparente.oaxaca.gob.mx/agua">www.oaxtransparente.oaxaca.gob.mx/agua</a></p>
+<a href="http://www.bancomundial.org/"><img alt="Bm" class="partner-logo" src="/assets/bm-cac25a21384564fc533c669ae1a40077.png" /></a>
+<a href="http://www.tm.org.mx"><img alt="Tm" class="partner-logo" src="/assets/tm-22f4f6440f00fc644087dbc35776f819.png" /></a>
+<a href="http://www.undp.org/content/undp/es/home.html"><img alt="Pnud" class="partner-logo" src="/assets/pnud-b6587fcd728d353e83b56ff88278fdc4.png" /></a>
+<a href="http://www.oaxaca.gob.mx/"><img alt="Goboax" class="partner-logo" src="/assets/goboax-560b722421863af13c74ff77a5188cf4.png" /></a>
+<a href="http://www.oaxaca.gob.mx/"><img alt="Bienestar" class="partner-logo" src="/assets/bienestar-527b786adba80df43c4f1fbeb340aa1d.png" /></a>
+<a href="http://www.oaxtransparente.gob.mx"><img alt="Ot" class="partner-logo" src="/assets/ot-edd51e320609937d366856498f98bc21.png" /></a>
+</div>
+<div class='col-md-4 col-md-offset-2'>
+<h2 class='large-font'>SAPAO</h2>
+<p class='address'>
+Calle Manuel Sabino Crespo # 509 Col. Centro,
+Oaxaca de Juárez, Oax., CP, 68000
+</p>
+<h3 class='large-font'>Línea gratuita Sapao</h3>
+<h1 class='x-large-font'>01800 0101050</h1>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
